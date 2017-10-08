@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.teiid.spring.annotations.SelectQuery;
 
@@ -15,13 +14,12 @@ import org.teiid.spring.annotations.SelectQuery;
  * setters for them in this class
  */
 @Entity
-@Table (name="TEIIDLOCALUSER")
-@SelectQuery( " select 	thisAppUser.userid," +    
-		 	" 			externalUser.age,"    
+@SelectQuery( " select 	thisAppUser.userid,"     
+		 +" 			externalUser.age,"    
 		 +" 			thisAppUser.firstname,"    
 		 +" 			externalUser.gender "     
 		 +" 			thisAppUser.username,"     
-		 +" 	from 	teiiduserganesh.TEIIDLOCALUSER as thisAppUser,"    
+		 +" 	from 	teiiduserganesh.USERS as thisAppUser,"    
 		 +" 			external_system_user as externalUser "    
 		 +" 	WHERE 	thisAppUser.username=externalUser.username ")   
 public class TeiidUSER implements Serializable {
